@@ -60,11 +60,11 @@ readinessProbe:
   failureThreshold: 3
 
 ingress:
-  enabled: false
-  className: ""
+  enabled: true
+  className: "nginx"
   annotations: {}
   hosts:
-    - host: chart-example.local
+    - host: interview-backend.local
       paths:
         - path: /
           pathType: Prefix
