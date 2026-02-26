@@ -31,10 +31,13 @@
 - `curl http://interview-backend.local/api/welcome`
 - `curl http://interview-backend.local/actuator/health`
 
-# CI/CD (Docker Hub)
+# CI/CD (GitHub Actions & Docker Hub)
 - Set repository secrets:
-- `DOCKERHUB_USERNAME`
-- `DOCKERHUB_TOKEN`
-- On push to `main`, the pipeline builds and pushes tags:
-- `sha-<git-sha>`
-- `latest`
+    - `DOCKERHUB_USERNAME`
+    - `DOCKERHUB_TOKEN`
+- Prior to merging a PR a successful build is required via `build-and-push`
+    - No DockerHub publish
+- On push to `master`, the pipeline builds and pushes tags:
+    - `sha-<git-sha>`
+    - `latest`
+
