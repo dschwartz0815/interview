@@ -34,8 +34,9 @@ spec:
           volumeMounts:
             - name: tmp
               mountPath: /tmp
-          env:
-            {{- toYaml .Values.env | nindent 12 }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "backend.fullname" . }}
           livenessProbe:
             httpGet:
               path: {{ .Values.livenessProbe.path }}
